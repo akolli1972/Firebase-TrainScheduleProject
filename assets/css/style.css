@@ -1,0 +1,30 @@
+
+
+.jumbotron {
+    
+    background-color: purple;
+    color: yellow;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    font-family: "Carrois Gothic SC", sans-serif;
+    font-style: italic;
+    
+    
+
+}
+.card-title {
+color: blue;
+margin-top: 5px;
+margin-bottom: 5px;
+margin-left: 5px;
+margin-right: 5px;
+border: 5px;
+background-origin: padding-box;
+}
+.card-text {
+color: maroon;
+font-size: 18px;
+}
+
+
