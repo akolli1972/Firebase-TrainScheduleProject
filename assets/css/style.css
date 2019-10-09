@@ -2,8 +2,8 @@
 
 .jumbotron {
     
-    background-color: purple;
-    color: yellow;
+    background-color:palevioletred;
+    color: blue;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 15px;
@@ -25,6 +25,17 @@ background-origin: padding-box;
 .card-text {
 color: maroon;
 font-size: 18px;
+}
+ .container {
+background-color:yellowgreen;
+/* height: 100%;
+margin: 0;
+width: 100%;
+margin-bottom: 0; */ 
+
+
+
+
 }
 
 
