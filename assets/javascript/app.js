@@ -10,7 +10,7 @@ var firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   
-  var database = firebaseConfig.database();
+  var database = firebase.database();
   
   $("#submit").on("click", function(event) {
     event.preventDefault();
@@ -22,10 +22,10 @@ var firebaseConfig = {
     var frequency = parseInt($("#frequency").val().trim());
   
     database.ref().push({
-        dataTrainName: trainName,
-        dataDestination: destination,
-        dataTime: time,
-        dataFrequency: frequency,
+        TrainName: trainName,
+        Destination: destination,
+        Time: time,
+        Frequency: frequency,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
   });
@@ -37,10 +37,10 @@ var firebaseConfig = {
   
   database.ref().on("child_added", function(childSnapShot) {  
   
-    var trainName  = childSnapShot.val().dataTrainName;
-    var destination = childSnapShot.val().dataDestination;
-    var time = childSnapShot.val().dataTime;
-    var frequency = childSnapShot.val().dataFrequency;
+    var trainName  = childSnapShot.val().TrainName;
+    var destination = childSnapShot.val().Destination;
+    var time = childSnapShot.val().Time;
+    var frequency = childSnapShot.val().Frequency;
   
     // Converting time with Moment.js
     // Subtracting 1 year from the time variable to not overlap the current time variable
@@ -58,12 +58,12 @@ var firebaseConfig = {
     var arrivalTime = moment().add(minutesAway, "minutes");
   
     // Adding a new table row
-    var newTr = $("<tr>");
+    var newTab = $("<tr>");
   
     // Creating TD displays for the html
-    var nameDisplay = $("<td>").text(childSnapShot.val().dataTrainName);
-    var destinationDisplay = $("<td>").text(childSnapShot.val().dataDestination);
-    var frequencyDisplay = $("<td>").text(childSnapShot.val().dataFrequency);
+    var nameDisplay = $("<td>").text(childSnapShot.val().TrainName);
+    var destinationDisplay = $("<td>").text(childSnapShot.val().Destination);
+    var frequencyDisplay = $("<td>").text(childSnapShot.val().Frequency);
     var arrivalDisplay = $("<td>").text(moment(arrivalTime).format("hh:mm"));
     var minutesDisplay = $("<td>").text(minutesAway);
   
@@ -72,8 +72,8 @@ var firebaseConfig = {
     }
   
     // Appending the user input to the html
-    newTr.append(nameDisplay, destinationDisplay, frequencyDisplay, arrivalDisplay, minutesDisplay);
-    $("#information").append(newTr);
+    newTab.append(nameDisplay, destinationDisplay, frequencyDisplay, arrivalDisplay, minutesDisplay);
+    $("#information").append(newTab);
   
   }, function(errorObject) {
     console.log("The read failed: " + errorObject.code);
